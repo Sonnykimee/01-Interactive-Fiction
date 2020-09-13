@@ -44,9 +44,14 @@ def find_passage(game_desc, pid):
 
 
 def run_game():
-    # Ask user to initialize player
+    # Load map
     game_desc = load("game.json")
     current = find_passage(game_desc, game_desc["startnode"])
+
+    # Show intro
+    show_intro()
+
+    # Ask user to initialize player
     player = init_player()
     npcs = {
         "oldlady": NPC("The Old Lady", 0, "Could you please give me something to eat?"),
