@@ -25,7 +25,7 @@ def get_script(filename, id):
             if line[0] == id:
                 return line[1]
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -279,8 +279,8 @@ def handle_give(world, npc, item):
             ianne.relationship += 10
             player.mercy += 5
 
-            print("Myrce:" + get_script("myrce", "101"))
-            print("Myrce" + get_script("myrce", "102"))
+            print(npc.name + ": " + get_script("myrce", "101"))
+            print(npc.name + ": " + get_script("myrce", "102"))
             return world
 
 
