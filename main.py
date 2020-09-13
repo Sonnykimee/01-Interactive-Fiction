@@ -118,11 +118,9 @@ def update(world, choice):
                     if (goto >= 0 and goto < len(links)):
                         
                         l = links[goto]
-                        print(l)
                         new_current = find_passage(world["Map"], l["pid"])
                         world["Current"] = new_current
                         p.talking = None
-                        # print(world)
                         do_render = True
 
                         return world
