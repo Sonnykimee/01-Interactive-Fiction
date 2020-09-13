@@ -30,12 +30,17 @@
         }
       },
       {
-        "text": "You step closer the old lady. She is very thin. it looks like she is in hunger.\n\nThe old lay says: \"Hello young man, I... I haven't eaten anything in 3 days. Perhaps you could spare some food to this old woman?\"\n\n(You realize that you are still holding a bag of chips.)\n",
+        "text": "You step closer the old lady. She is very thin. Looks like she is in hunger.\n\nThe old lady says: \"Hello young man, I... I haven't eaten anything in 3 days. Perhaps you could spare some food to this old woman?\"\n\n(You realize that you are still holding a bag of chips.)\n",
         "links": [
           {
             "name": "Go to the village",
             "link": "Village",
             "pid": "3"
+          },
+          {
+            "name": "Go to the forest",
+            "link": "Forest",
+            "pid": "8"
           }
         ],
         "npcs": ["oldlady"],
@@ -85,6 +90,11 @@
             "name": "Go to the village",
             "link": "Village",
             "pid": "3"
+          },
+          {
+            "name": "Go to the forest",
+            "link": "Forest",
+            "pid": "8"
           }
         ],
         "npcs": [],

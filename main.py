@@ -25,7 +25,7 @@ def print_script(filename, id):
             if line[0] == id:
                 print(line[1])
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -57,7 +57,8 @@ def run_game():
         "oldlady": NPC("The Old Lady", 0, "Could you please give me something to eat?"),
         "ianne": NPC("Ianne", 0, "Hello good traveller, I am Ianne the goddess of Comppasion."),
         "tybalt": NPC("Tybalt", 0, "Hello folk, I am Tybalt the owner of this tavern!"),
-        "myrce": NPC("Myrce", 0, "Hi traveller, I am Myrce the druid. I serve this shrine.")
+        "myrce": NPC("Myrce", 0, "Hi traveller, I am Myrce the druid. I serve this shrine."),
+        "gypsy": NPC("Gypsy", 0, "Oh, you are not from here. Aren't you?")
     }
     
     world = {
@@ -226,37 +227,19 @@ def init_player():
 
 def show_intro():
     '''Shows the intro of the game.'''
-    time.sleep(0.5)
-    print()
-    time.sleep(0.5)
-    print()
-    time.sleep(0.5)
-    print()
-    time.sleep(0.5)
+    time.sleep(0.3)
+    print(".")
+    time.sleep(0.3)
+    print(".")
+    time.sleep(0.3)
+    print(".")
+    time.sleep(0.3)
     print("VERSION: " + VERSION)
-    time.sleep(0.5)
-    print()
-    time.sleep(0.5)
-    print("Created by ", end="", flush=True)
-    time.sleep(0.5)
-    print("S", end="", flush=True)
     time.sleep(0.3)
-    print("o", end="", flush=True)
+    print(".")
     time.sleep(0.3)
-    print("n", end="", flush=True)
-    time.sleep(0.3)
-    print("n", end="", flush=True)
-    time.sleep(0.3)
-    print("y", end="", flush=True)
-    time.sleep(0.3)
-    print(" ", end="", flush=True)
-    time.sleep(0.3)
-    print("K", end="", flush=True)
-    time.sleep(0.3)
-    print("i", end="", flush=True)
-    time.sleep(0.3)
-    print("m", end="", flush=True)
-    time.sleep(3)
+    print("Created by Sonny Kim")
+    time.sleep(2)
     GameHelper.cls()
 
     print("It's Saturday night. You are relaxing on your sofa watching a movie. "
@@ -265,7 +248,8 @@ def show_intro():
     + "you see a mysterious circle that has appeared in the middle of the room. "
     + "Beyond the circle, you see a place where you have never been. "
     + "The circle is growing larger, and now it's devouring you.\n")
-
+    
+    time.sleep(2)
     input("Press Enter to Continue...")
     GameHelper.cls()
 
