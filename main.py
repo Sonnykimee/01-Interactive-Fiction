@@ -18,14 +18,15 @@ class NoThankYou(Exception):
     pass
 
 
-def get_script(filename, id):
+def get_script(filename, id, world):
     with open(Path("npc/"+ filename +".csv"), "r") as f:
         reader = csv.reader(f)
         for line in reader:
             if line[0] == id:
+                line[0].replace("$PLAYER", world["Player"].name)
                 return line[1]
 
-VERSION = "0.2.2"
+VERSION = "0.2.3"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -146,7 +147,7 @@ def update(world, choice):
                         npc = world["NPC"][npc_id]
                         p.talking = npc
                         print("You have selected " + npc.name + "!")
-                        print(npc.name + ": " + get_script(npc_id, "100"))
+                        print(npc.name + ": " + get_script(npc_id, "100", world))
                         return world
                 print("You have chosen an invalid person's name. Type \"people\" to see the people around you!")
         elif args[0] == "give": # Give item to an NPC
@@ -166,8 +167,9 @@ def update(world, choice):
                             print("[You gave " + item.name + " to " + target.name + "]")
 
                             try:
-                                world = handle_give(world, target, item)
-                                p.remove_item(item)
+                                world, do_remove = handle_give(world, target, item)
+                                if (do_remove):
+                                    p.remove_item(item)
                                 return world
                             except NoThankYou:
                                 print(target.name + ": No thank you. I have no use of that.\n[" + target.name + " gave " + item.name + " back to you]")
@@ -274,7 +276,7 @@ def handle_give(world, npc, item):
             world["Current"] = new_current
             player.talking = None
             do_render = True
-            return world
+            return world, True
     elif current_pid == "9": # At the Shrine of Compassion
         if npc.name == "Myrce" and item.item_id == 104:
             ianne = world["NPC"]["myrce"]
@@ -283,9 +285,15 @@ def handle_give(world, npc, item):
             ianne.relationship += 10
             player.mercy += 5
 
-            print(npc.name + ": " + get_script("myrce", "101"))
-            print(npc.name + ": " + get_script("myrce", "102"))
-            return world
+            print(npc.name + ": " + get_script("myrce", "101", world))
+            print(npc.name + ": " + get_script("myrce", "102", world))
+            return world, True
+    elif current_pid == "10":
+        if npc.name == "Gypsy" and item.item_id == 104:
+            player = world["Player"]
+            
+            print(npc.name + ":" + get_script("gypsy", "101", world))
+            return world, False
 
     raise NoThankYou
 

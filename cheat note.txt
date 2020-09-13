@@ -15,6 +15,8 @@ type "give 0", to give the chips to the old lady.
 
 Ianne undisguises, she salutes you for your compassionate behavior. She will give you a golden whistle.
 
+If you go to the village and find Gypsy woman in the market place, you can show the golden whistle by giving it to her. She will give it back.
+
 If you evenutally go to the shrine of compassion, you will see Mryce the druid. Give her the golden whistle.
 
 This is an example of RPG-like quest that I have thought about.
