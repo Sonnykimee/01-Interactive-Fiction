@@ -45,7 +45,7 @@ def get_script(filename, npc_id, world):
                         p.add_item(Item(item_id, item_name))
                 return line[1]
 
-VERSION = "0.3.1"
+VERSION = "0.3.2"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -82,7 +82,8 @@ def run_game():
         "gypsy": NPC("Gypsy", 0),
         "fides": NPC("Fides", 0),
         "townmaster": NPC("Townmaster Sonny", 0),
-        "alfreda": NPC("Alfreda", 0)
+        "alfreda": NPC("Alfreda", 10),
+        "swineman": NPC("Swine-Man", 0)
     }
     
     world = {
@@ -220,7 +221,10 @@ def update(world, choice):
                         if (script_exists(key, args[0])):
                             print(npc.name + ": " + get_script(key, args[0], world))
                             return world
-                print(npc.name + ": Nothing I can tell you about that.")
+                if npc.name == "Swine-Man":
+                    print(npc.name + ": (Doesn't seem to understand at all.)")
+                else:
+                    print(npc.name + ": Nothing I can tell you about that.")
             else:
                 print("You cannot do such thing!")
         

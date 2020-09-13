@@ -277,7 +277,7 @@
       }
     },
     {
-      "text": "You are standing in the middle of a very wide hall. You are seeing some creatures that only can described by saying \"pig humans\"... They are walking like people but they have a body of pig.\n\nYou see two paths to get out of here.\n",
+      "text": "You are standing in the middle of a very wide hall. You are seeing some creatures that only can described by saying \"swine humans\"... They are walking like people but they have a body of pig.\n\nYou see a swine man approaching to you.\n\nYou see two paths to get out of here.\n",
       "links": [
         {
           "name": "Go to right",
@@ -290,7 +290,7 @@
           "pid": "14"
         }
       ],
-      "npcs": [],
+      "npcs": ["swineman"],
       "name": "Pinkling_Hide",
       "pid": "13",
       "position": {
