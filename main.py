@@ -107,6 +107,7 @@ def update(world, choice):
 
                     current = world["Current"]
                     links = current["links"]
+                    p = world["Player"]
 
                     if (goto >= 0 and goto < len(links)):
                         
@@ -114,6 +115,7 @@ def update(world, choice):
                         print(l)
                         new_current = find_passage(world["Map"], l["pid"])
                         world["Current"] = new_current
+                        p.talking = None
                         # print(world)
                         do_render = True
 
@@ -279,6 +281,7 @@ def handle_give(world, npc, item):
 
             new_current = find_passage(world["Map"], "4")
             world["Current"] = new_current
+            player.talking = None
             do_render = True
             return world
     elif current_pid == "9": # At the Shrine of Compassion

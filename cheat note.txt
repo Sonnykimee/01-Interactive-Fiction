@@ -1,0 +1,20 @@
+To give better gameplay for Mr. Francis, I wrote this note.
+When you first start, you will be moved to another world.
+The first thing you will see is a grass field and an old lady in hunger.
+She is actually a disguise of Ianne the Goddess of Compassion.
+
+type "goto 0" to approach to the old lady.
+
+Now if you type "people", you will see the list of people you can talk.
+
+type "talk oldlady".
+
+If you type "inv". You can see what's in your inventory. You have a bag of nacho chips.
+
+type "give 0", to give the chips to the old lady.
+
+Ianne undisguises, she salutes you for your compassionate behavior. She will give you a golden whistle.
+
+If you evenutally go to the shrine of compassion, you will see Mryce the druid. Give her the golden whistle.
+
+This is an example of RPG-like quest that I have thought about.
