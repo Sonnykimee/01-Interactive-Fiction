@@ -33,7 +33,8 @@ def get_script(filename, npc_id, world):
         for line in reader:
             if line[0] == npc_id:
                 # Change Player Name
-                line[0].replace("$PLAYER", world["Player"].name)
+                line[1] = line[1].replace("$PLAYER", world["Player"].name)
+
                 # Read command
                 if line[2] != "":
                     args = line[2].split(":")
@@ -44,7 +45,7 @@ def get_script(filename, npc_id, world):
                         p.add_item(Item(item_id, item_name))
                 return line[1]
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
