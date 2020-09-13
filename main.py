@@ -18,14 +18,14 @@ class NoThankYou(Exception):
     pass
 
 
-def print_script(filename, id):
+def get_script(filename, id):
     with open(Path("npc/"+ filename +".csv"), "r") as f:
         reader = csv.reader(f)
         for line in reader:
             if line[0] == id:
-                print(line[1])
+                return line[1]
 
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -54,11 +54,11 @@ def run_game():
     # Ask user to initialize player
     player = init_player()
     npcs = {
-        "oldlady": NPC("The Old Lady", 0, "Could you please give me something to eat?"),
-        "ianne": NPC("Ianne", 0, "Hello good traveller, I am Ianne the goddess of Comppasion."),
-        "tybalt": NPC("Tybalt", 0, "Hello folk, I am Tybalt the owner of this tavern!"),
-        "myrce": NPC("Myrce", 0, "Hi traveller, I am Myrce the druid. I serve this shrine."),
-        "gypsy": NPC("Gypsy", 0, "Oh, you are not from here. Aren't you?")
+        "oldlady": NPC("The Old Lady", 0),
+        "ianne": NPC("Ianne", 0),
+        "tybalt": NPC("Tybalt", 0),
+        "myrce": NPC("Myrce", 0),
+        "gypsy": NPC("Gypsy", 0)
     }
     
     world = {
@@ -143,7 +143,7 @@ def update(world, choice):
                         npc = world["NPC"][npc_id]
                         p.talking = npc
                         print("You have selected " + npc.name + "!")
-                        print(npc.name + ": " + npc.greeting)
+                        print(npc.name + ": " + get_script(npc_id, "100"))
                         return world
                 print("You have chosen an invalid person's name. Type \"people\" to see the people around you!")
         elif args[0] == "give": # Give item to an NPC
@@ -237,9 +237,9 @@ def show_intro():
     print(".")
     time.sleep(0.3)
     print("Created by Sonny Kim")
-    time.sleep(2)
-    GameHelper.cls()
-
+    time.sleep(0.3)
+    print(".")
+    time.sleep(0.3)
     print("It's Saturday night. You are relaxing on your sofa watching a movie. "
     + "The movie is rather boring. When you reached out your hand for a bag of chips, " 
     + "suddenly you started to feel dizzy. Through your blurred vision, "
@@ -247,7 +247,7 @@ def show_intro():
     + "Beyond the circle, you see a place where you have never been. "
     + "The circle is growing larger, and now it's devouring you.\n")
     
-    time.sleep(2)
+    time.sleep(1)
     input("Press Enter to Continue...")
     GameHelper.cls()
 
@@ -279,8 +279,8 @@ def handle_give(world, npc, item):
             ianne.relationship += 10
             player.mercy += 5
 
-            print_script("myrce", "100")
-            print_script("myrce", "101")
+            print("Myrce:" + get_script("myrce", "101"))
+            print("Myrce" + get_script("myrce", "102"))
             return world
 
 
