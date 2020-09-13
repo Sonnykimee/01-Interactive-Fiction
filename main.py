@@ -25,7 +25,7 @@ def get_script(filename, id):
             if line[0] == id:
                 return line[1]
 
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -57,8 +57,11 @@ def run_game():
         "oldlady": NPC("The Old Lady", 0),
         "ianne": NPC("Ianne", 0),
         "tybalt": NPC("Tybalt", 0),
+        "bard": NPC("Bard", 0),
         "myrce": NPC("Myrce", 0),
-        "gypsy": NPC("Gypsy", 0)
+        "gypsy": NPC("Gypsy", 0),
+        "fides": NPC("Fides", 0),
+        "townmaster": NPC("Townmaster Sonny", 0),
     }
     
     world = {
@@ -205,6 +208,7 @@ def render(world):
         for l in links:
             print("[goto " + str(count) + "] " + l["name"])
             count += 1
+        print()
 
         do_render = False
 
@@ -282,7 +286,6 @@ def handle_give(world, npc, item):
             print(npc.name + ": " + get_script("myrce", "101"))
             print(npc.name + ": " + get_script("myrce", "102"))
             return world
-
 
     raise NoThankYou
 
