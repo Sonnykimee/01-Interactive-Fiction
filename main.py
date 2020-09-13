@@ -63,6 +63,7 @@ def run_game():
         "gypsy": NPC("Gypsy", 0),
         "fides": NPC("Fides", 0),
         "townmaster": NPC("Townmaster Sonny", 0),
+        "alfreda": NPC("Alfreda", 0)
     }
     
     world = {
@@ -137,7 +138,7 @@ def update(world, choice):
         elif args[0] == "talk": # Talk to an NPC
             p = world["Player"]
 
-            if (len(args) == 0):
+            if (len(args) == 1):
                 print("Type the person's name. Type \"people\" to see the people around you!")
             else:
                 current = world["Current"]

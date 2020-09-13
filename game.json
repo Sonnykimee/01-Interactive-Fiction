@@ -136,7 +136,7 @@
           "pid": "3"
         }
       ],
-      "npcs": ["tybalt", "bard"],
+      "npcs": ["tybalt", "bard", "alfreda"],
       "name": "Tavern",
       "pid": "6",
       "position": {
