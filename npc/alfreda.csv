@@ -1,1 +1,6 @@
-"100","Oh, hi. My name is Alfreda. I am Tybalt's daughter."
+"100","Oh, hi. My name is Alfreda. I am Tybalt's daughter.",""
+"hi","Oh, hello there. You are a new face here. Tell me some interesting story. Do you want some ale?",""
+"name","My name is Alfreda.",""
+"ale","Here you are. It's on the house. [You gave a mug of ale]","ITEM:102:Ale"
+"story","Well, you know. This town is quite boring. Just tell me something fun.",""
+"tell","(You told Alfreda about your world. Alfreda seems to be very interested.)",""

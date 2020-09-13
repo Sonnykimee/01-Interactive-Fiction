@@ -22,13 +22,17 @@ class Player():
         print("")
 
 
-    def add_item(self, item):
+    def add_item(self, item, silent=False):
         self.items.append(item)
-        print("[" + item.name + " has added to your inventory.]")
+
+        if not silent:
+            print("[" + item.name + " has added to your inventory.]")
 
 
-    def remove_item(self, item):
+    def remove_item(self, item, silent=False):
         self.items.remove(item)
-        print("[" + item.name + " has removed from your inventory.]")
+
+        if not silent:
+            print("[" + item.name + " has removed from your inventory.]")
 
 

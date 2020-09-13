@@ -18,15 +18,33 @@ class NoThankYou(Exception):
     pass
 
 
-def get_script(filename, id, world):
-    with open(Path("npc/"+ filename +".csv"), "r") as f:
+def script_exists(filename, npc_id):
+    with open(Path("npc/"+ filename +".csv", newline='\n'), "r") as f:
         reader = csv.reader(f)
         for line in reader:
-            if line[0] == id:
+            if line[0] == npc_id:
+                return True
+        return False
+
+
+def get_script(filename, npc_id, world):
+    with open(Path("npc/"+ filename +".csv", newline='\n'), "r") as f:
+        reader = csv.reader(f)
+        for line in reader:
+            if line[0] == npc_id:
+                # Change Player Name
                 line[0].replace("$PLAYER", world["Player"].name)
+                # Read command
+                if line[2] != "":
+                    args = line[2].split(":")
+                    if (args[0] == "ITEM"): # Give item
+                        item_id = int(args[1])
+                        item_name = args[2]
+                        p = world["Player"]
+                        p.add_item(Item(item_id, item_name))
                 return line[1]
 
-VERSION = "0.2.3"
+VERSION = "0.3.0"
 
 do_render = True # This variable determines wheter to render the world again or not.
 
@@ -193,7 +211,17 @@ def update(world, choice):
                     print(npc, end=", ")
                 print("")
         else:
-            print("You cannot do such thing!")
+            p = world["Player"]
+            if (p.talking):
+                npc = p.talking
+                for key, value in world["NPC"].items():
+                    if value.name == npc.name:
+                        if (script_exists(key, args[0])):
+                            print(npc.name + ": " + get_script(key, args[0], world))
+                            return world
+                print(npc.name + ": Nothing I can tell you about that.")
+            else:
+                print("You cannot do such thing!")
         
         return world
 
